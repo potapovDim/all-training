@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {fetchy} from './service'
+import axios from 'axios'
 
 class Main extends Component {
   constructor(props){
@@ -14,7 +14,12 @@ class Main extends Component {
     this.getSampleText() 
   }
   getSampleText = () => {
-    
+    const url = `http://hipsterjesus.com/api?paras=${this.state.paras}&html=${this.state.html}`
+    axios.get(url).then(response => {
+      this.setState({
+        text: response.data.text
+      }, () => cosole.log('text inited'))
+    })
   } 
   render() {
     return(

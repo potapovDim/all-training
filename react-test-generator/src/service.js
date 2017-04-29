@@ -1,8 +1,11 @@
 import 'whatwg-fetch'
 import 'babel-polyfill'
+const https = require("https")
+const agent = new https.Agent({ rejectUnauthorized: false })
 
 export const fetchy = (uri, options, refreshToken) => {
   const query = {
+    agent,
     method: options.method,
     headers: {
       'Content-Type': options.contentType
@@ -13,13 +16,13 @@ export const fetchy = (uri, options, refreshToken) => {
       ? JSON.stringify(options.data)
       : options.data
   )
-  return fetch(uri, query).then(checkStatus).catch(error => __DEV__ ? console.error(`fetchy: ${error}`) : null)
+  return fetch(uri, query)
 }
 
-fetchy.post = (uri, data,) => fetchy(uri, {data, contentType: 'application/json', method: 'POST'})
+fetchy.post = (url, data,) => fetchy(url, {data, contentType: 'application/json', method: 'POST'})
 
-fetchy.get = (url) => fetchy(uri, {contentType: '', method: 'GET', auth})
+fetchy.get = (url) => fetchy(url, {contentType: '', method: 'GET'})
 
-fetchy.delete = (uri) => fetchy(uri, {contentType: '', method: 'DELETE'})
+fetchy.delete = (url) => fetchy(url, {contentType: '', method: 'DELETE'})
 
-fetchy.put = (uri, data) => fetchy(uri, {data, contentType: 'application/json', method: 'PUT'})
+fetchy.put = (url, data) => fetchy(url, {data, contentType: 'application/json', method: 'PUT'})
