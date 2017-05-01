@@ -5,7 +5,7 @@ import {TextGenService} from './textGen.service'
   templateUrl: 'app.template.html'
 })
 export class AppComponent implements OnInit{
-  title: string = 'Привіт , це тестовий приклад №4 )';
+  title: string = 'Text generator service';
   text: string = ''
   error: string = ''
   constructor(private textGen: TextGenService){}
