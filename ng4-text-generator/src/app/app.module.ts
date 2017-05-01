@@ -1,4 +1,3 @@
-import { Page } from './pages/page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -7,8 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Page
+    AppComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, CommonModule],
   bootstrap: [AppComponent]
