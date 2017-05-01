@@ -1,15 +1,9 @@
 <div class="app-initial">
   <h2>{{title}}</h2>
-  <div>
-    <div>
-      <div>
-      </div>
-    </div>
-    <div *ngIf="data.field1 && data.field2">
-        {{data.field1}} - {{data.field2}}
-    </div>
-    <div *ngIf="data.error">
-        {{data.error}}
-    </div>
-  </div>
+  <select (change)="changeQueryHtml($event)">
+    <option value="true">Yes</option>
+    <option value="false">No</option>
+  </select>
+  <input type="text" (change)="changeQueryParas($event)"/>
+  <output [text]="text"></output>
 </div>
