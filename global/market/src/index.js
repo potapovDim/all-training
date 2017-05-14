@@ -6,6 +6,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 import { InitialPage } from './market-app/index'
 import { SomePage } from './market-app/somepage'
+import { NotFound } from './componentns/not-found'
 
 
 const history = createBrowserHistory()
@@ -13,6 +14,7 @@ class AppMarket extends React.Component {
   render = () => (
     <Router history={history}>
       <Route path="/" component={InitialPage}>
+        <Route path="*" component={NotFound} />
       </Route>
     </Router>
   )
