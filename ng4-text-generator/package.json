@@ -47,6 +47,7 @@
     "mocha": "^3.4.2",
     "mocha-clean": "^1.0.0",
     "protractor": "~4.0.14",
+    "reflect-metadata": "^0.1.10",
     "rimraf": "^2.5.4",
     "sinon": "^2.3.4",
     "ts-node": "^3.0.6",
