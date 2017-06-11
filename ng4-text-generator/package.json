@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "mocha $(find ./src/ -path '*.spec.*') --compilers ts:ts-node/register --project ./ --require ./src/setup.js",
+    "test": "mocha --timeout 15000 $(find ./src/ -path '*.spec.*') --compilers ts:ts-node/register --project ./  --require reflect-metadata --require ./src/setup.js",
     "test:mocha": "mocha -r ts-node/register src/**/*spec.ts",
     "start": "webpack-dev-server --hot --inline --port 9999"
   },
@@ -54,7 +54,8 @@
     "tslint": "^3.15.1",
     "typescript": "~2.1.0",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "xmlhttprequest": "^1.8.0"
   },
   "author": "",
   "license": "ISC"

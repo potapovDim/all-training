@@ -1,41 +1,35 @@
 // harness.js
 require('mocha-clean'); // cleaner stack traces, yes please
-
+require('reflect-metadata');
 const glob = require('glob');
 const jsdom = require('jsdom');
 const chai = require('chai');
 const sinon = require('sinon');
 
-require('reflect-metadata');
-require('zone.js')
-require('zone.js/dist/long-stack-trace-zone')
-require('zone.js/dist/proxy.js')
-require('zone.js/dist/sync-test')
-require('zone.js/dist/async-test')
-require('zone.js/dist/fake-async-test')
-require('core-js/es6/object')
-require('core-js/es6/array')
-require('core-js/es7/reflect')
-require('core-js/es6/set')
-require('core-js/es6');
 
-const {getTestBed} = require('@angular/core/testing');
-const {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} = require('@angular/platform-browser-dynamic/testing');
-
-getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
+const {XMLHttpRequest} = require("xmlhttprequest");
 
 
 
+require('zone.js/dist/zone');
 global.document = jsdom.jsdom();
 global.window = document.defaultView;
+global.XMLHttpRequest = XMLHttpRequest;
+global.window.XMLHttpRequest = XMLHttpRequest;
+
+
+require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/async-test');
+require('zone.js/dist/fake-async-test');
+require('zone.js/dist/sync-test');
+require('zone.js/dist/proxy');
+
+// require('zone.js/dist/jasmine-patch');
+
+
 
 global.navigator = window.navigator || {};
+global.Reflect = require('reflect-metadata/Reflect.js');
 global.Node = window.Node;
 global.addEventListener = window.addEventListener;
 global.MouseEvent = window.MouseEvent;
@@ -59,6 +53,27 @@ window.mocha = true;
 global.angular = window.angular;
 global.sinon = sinon;
 global.expect = chai.expect;
+
+
+
+
+
+const {getTestBed} = require('@angular/core/testing');
+const {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} = require('@angular/platform-browser-dynamic/testing');
+
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+
+
+
+
+
+
 
 
 
