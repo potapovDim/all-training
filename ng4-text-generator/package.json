@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha --timeout 15000 $(find ./src/ -path '*.spec.*') --compilers ts:ts-node/register --project ./  --require reflect-metadata --require ./src/setup.js",
     "test:mocha": "mocha -r ts-node/register src/**/*spec.ts",
+    "test:karma": "karma start ./karma.conf.js",
     "start": "webpack-dev-server --hot --inline --port 9999"
   },
   "dependencies": {

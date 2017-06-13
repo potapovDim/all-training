@@ -1,6 +1,4 @@
-
-import { ComponentFixture, TestBed, async } from "@angular/core/testing";
-import { expect } from "chai";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { TextGenService } from "./textGen.service";
 import { AppComponent } from "./app.component";
@@ -29,20 +27,19 @@ describe("AppComponent", () => {
     })
   }));
   it("can load instance", () => {
-    console.log(comp)
-    expect(1).to.not.eql(1);
+    expect(comp).toBeTruthy();
   });
 
-  // it("title defaults to: Text generator service", () => {
-  //   expect(comp.title).to.eql("Text generator service");
-  // });
+  it("title defaults to: Text generator service", () => {
+    expect(comp.title).toEqual("Text generator service");
+  });
 
-  // describe("ngOnInit", () => {
-  //   it("makes expected calls", () => {
-  //     spyOn(comp, "getTextFromServer");
-  //     comp.ngOnInit();
-  //     expect(comp.getTextFromServer).toHaveBeenCalled();
-  //   });
-  // });
+  describe("ngOnInit", () => {
+    it("makes expected calls", () => {
+      spyOn(comp, "getTextFromServer");
+      comp.ngOnInit();
+      expect(comp.getTextFromServer).toHaveBeenCalled();
+    });
+  });
 
 });
